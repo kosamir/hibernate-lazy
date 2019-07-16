@@ -14,24 +14,25 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo-hibernate-lazy</name>
 	<description>Demo project for Spring Boot</description>
+	<packaging>pom</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
+	
+	<modules>
+		<module>demo-hibernate-lazy-db</module>
+	</modules>
 
 	<dependencies>
-		<dependency>
+	 <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -57,8 +58,20 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+                    <mainClass>com.example.demo.DemoHibernateLazyApplication</mainClass>
+                </configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.1</version>
+				<configuration>
+					<useSystemClassLoader>false</useSystemClassLoader>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
 
+	
 </project>

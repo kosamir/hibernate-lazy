@@ -10,6 +10,7 @@ import lombok.Data;
 @PropertySource(value = "classpath:test-data.properties")
 @Data
 public class ApplicationProperties {
+	
 	@Value("${guru.surname}")
 	private String host;
 	@Value("${guru.name}")
